@@ -4,14 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ウイルス感染！(テストです)</title>
+
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8Y7SWYXK9');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8Y7SWYXK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q8Y7SWYXK9');
+
+    // URLパラメータから user を取得
+    function getUserParam() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('user') || 'unknown';
+    }
+
+    // カスタムイベントとして GA4 に送信
+    const user = getUserParam();
+    gtag('event', 'employee_click', {
+      'employee_id': user
+    });
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -34,5 +48,6 @@
   </div>
 </body>
 </html>
+
 
 
