@@ -11,16 +11,19 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-NMVQTEFSMT');
+    gtag('config', 'G-NMVQTEFSMT', {
+    user_id: user
+　　});
 
     // URLパラメータから user を取得
     function getUserParam() {
       const params = new URLSearchParams(window.location.search);
       return params.get('user') || 'unknown';
     }
-
     // カスタムイベントとして GA4 に送信
     const user = getUserParam();
+
+    
     gtag('event', 'employee_click', {
       'employee_id': user
     });
